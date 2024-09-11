@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
-
+import './task.css'
 import axios from "axios"
 
 
-const Task = ({ user }) => {
+const Task = ({ user,handelLogOut }) => {
 
     const [tasks, setTask] = useState([])
 
@@ -93,16 +93,20 @@ const Task = ({ user }) => {
     }
 
     return (
-        <div>
+        <div className="task-container">
 
-            <div>
+            <div className="add-task">
                 <h4>Add New Task</h4>
-                <input
+
+              <lable for='title'>Title : </lable> 
+                <input id='title'
                     type="text"
                     placeholder="Title"
                     value={newTask.title}
                     onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
                 />
+               
+               <lable for='title'>Description : </lable> 
                 <input
                     type="text"
                     placeholder="Description"
@@ -118,7 +122,12 @@ const Task = ({ user }) => {
                     <option value="High">High</option>
                 </select>
                 <button onClick={addTask}>Add Task</button>
+
+                <button onClick={handelLogOut}>Logout</button>
             </div>
+
+
+
 
 
             <h3>Your Tasks</h3>

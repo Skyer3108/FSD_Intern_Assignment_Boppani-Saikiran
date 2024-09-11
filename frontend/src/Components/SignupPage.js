@@ -20,14 +20,21 @@ const Signup=({setUser})=>{
 
         try{
 
-            const response=await axios.post('http://localhost:5000/api/sign-up',data)
+            if(data.username.trim()!==''&&data.email.trim()!==''&&data.password.trim()!==''){
 
-            const userData={id:response.data.id,token:response.data.token}
+                const response=await axios.post('http://localhost:5000/api/sign-up',data)
 
-            localStorage.setItem('user',JSON.stringify(userData))
+                const userData={id:response.data.id,token:response.data.token}
+    
+                localStorage.setItem('user',JSON.stringify(userData))
+    
+                setUser(userData)
+                navigate('/')
 
-            setUser(userData)
-            navigate('/')
+            }else{
+                alert('Plese Enter All The Details')
+            }
+           
 
         }
         catch(err){

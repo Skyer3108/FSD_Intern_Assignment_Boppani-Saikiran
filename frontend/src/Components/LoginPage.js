@@ -18,14 +18,20 @@ const Login = ({ setUser }) => {
     const handleLogin = async () => {
         try {
 
-            const response = await axios.post('http://localhost:5000/api/login', data)
+            if(data.email.trim()!==''&&data.password.trim()!==''){
+                const response = await axios.post('http://localhost:5000/api/login', data)
 
-            const userData = { id: response.data.id, token: response.data.token }
-
-            localStorage.setItem('user', JSON.stringify(userData))
-
-            setUser(userData);
-            navigate('/')
+                const userData = { id: response.data.id, token: response.data.token }
+    
+                console.log(userData)
+                localStorage.setItem('user', JSON.stringify(userData))
+    
+                setUser(userData);
+                navigate('/')
+            }else{
+                alert('Please Enter all the Details')
+            }
+            
         } catch (err) {
 
             console.log(err)
