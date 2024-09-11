@@ -1,0 +1,29 @@
+.container{
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    font-size: 20px;
+    padding: 10px;
+
+  background-color: #c1c1c1;
+
+    border-radius: 10px;
+}
+.main input{
+    margin: 10px;
+    width: 80%;
+    height:30px ;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+}
